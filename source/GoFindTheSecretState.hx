@@ -83,13 +83,15 @@ class GoFindTheSecretState extends MusicBeatState
 						tmr.reset(0.03);
 					}
 			});
+			
+		addVirtualPad(NONE, A);
 	}
 
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
 
-		if (FlxG.keys.justPressed.ENTER)
+		if (controls.ACCEPT)
 		{
 			FlxG.sound.music.stop();
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
