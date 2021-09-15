@@ -53,11 +53,6 @@ class TitleState extends MusicBeatState
 		#if polymod
 		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
 		#end
-		
-		#if sys
-		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
-			sys.FileSystem.createDirectory(Sys.getCwd() + "/assets/replays");
-		#end
 
 		@:privateAccess
 		{
@@ -118,6 +113,7 @@ class TitleState extends MusicBeatState
 			startIntro();
 		});
 		#end
+		
 	}
 
 	var logoBl:FlxSprite;
@@ -262,7 +258,7 @@ class TitleState extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
 
-		#if mobile
+
 		for (touch in FlxG.touches.list)
 		{
 			if (touch.justPressed)
@@ -270,7 +266,7 @@ class TitleState extends MusicBeatState
 				pressedEnter = true;
 			}
 		}
-		#end
+
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
@@ -287,13 +283,6 @@ class TitleState extends MusicBeatState
 
 		if (pressedEnter && !transitioning && skippedIntro)
 		{
-			#if !switch
-			NGio.unlockMedal(60960);
-
-			// If it's Friday according to da clock
-			if (Date.now().getDay() == 5)
-				NGio.unlockMedal(61034);
-			#end
 
 			if (FlxG.save.data.flashing)
 				titleText.animation.play('press');
