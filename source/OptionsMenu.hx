@@ -25,13 +25,11 @@ class OptionsMenu extends MusicBeatState
 
 	var options:Array<OptionCategory> = [
 		new OptionCategory("Gameplay", [
-			new DFJKOption(controls),
+			new DFJKOption("Change mobile controls."),
 			new DownscrollOption("Change the layout of the strumline."),
 			new GhostTapOption("Ghost Tapping is when you tap a direction and it doesn't give you a miss."),
 			new Judgement("Customize your Hit Timings (LEFT or RIGHT)"),
-			#if desktop
 			new FPSCapOption("Cap your FPS"),
-			#end
 			new ScrollSpeedOption("Change your scroll speed (1 = Chart dependent)"),
 			new AccuracyDOption("Change how accuracy is calculated. (Accurate = Simple, Complex = Milisecond Based)"),
 			// new OffsetMenu("Get a note offset based off of your inputs!"),
@@ -40,19 +38,14 @@ class OptionsMenu extends MusicBeatState
 			new CamZoomOption("Toggle the camera zoom in-game."),
 			new FlashingLightsOption("Toggle flashing lights that can cause epileptic seizures and strain."),
 			new NoteSplashOption("Have the static notes flash when you hit ."),
-			#if desktop
 			new RainbowFPSOption("Make the FPS Counter Rainbow"),
 			new AccuracyOption("Display accuracy information."),
 			new NPSDisplayOption("Shows your current Notes Per Second."),
 			new SongPositionOption("Show the songs current position (as a bar)"),
-			#end
 		]),
 		
 		new OptionCategory("Misc", [
-			#if desktop
 			new FPSOption("Toggle the FPS Counter"),
-			new ReplayOption("View replays"),
-			#end
 			new WatermarkOption("Enable and disable all watermarks from the engine."),
 			new BotPlay("Showcase your charts and mods with autoplay.")
 		])
@@ -106,6 +99,8 @@ class OptionsMenu extends MusicBeatState
 
 		FlxTween.tween(versionShit,{y: FlxG.height - 18},2,{ease: FlxEase.elasticInOut});
 		FlxTween.tween(blackBorder,{y: FlxG.height - 18},2, {ease: FlxEase.elasticInOut});
+
+		addVirtualPad(FULL, A_B);
 
 		super.create();
 	}
