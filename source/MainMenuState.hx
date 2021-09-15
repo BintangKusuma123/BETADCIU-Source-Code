@@ -188,7 +188,7 @@ class MainMenuState extends MusicBeatState
 			controls.setKeyboardScheme(KeyboardScheme.Duo(true), true);
 
 		changeItem();
-
+		addVirtualPad(UP_DOWN, A_B);
 		super.create();
 	}
 
