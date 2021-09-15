@@ -4435,9 +4435,6 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (!loadRep)
-			rep = new Replay("na");
-
 		switch (curStage)
 		{
 			case 'emptystage':
@@ -7567,15 +7564,9 @@ class PlayState extends MusicBeatState
 				PlayState.instance.remove(PlayState.instance.videoSprite);
 			}
 
-		if (!loadRep)
-			rep.SaveReplay(saveNotes);
-		else
-		{
 			FlxG.save.data.botplay = false;
 			FlxG.save.data.scrollSpeed = 1;
 			FlxG.save.data.downscroll = false;
-		}
-
 		if (FlxG.save.data.fpsCap > 290)
 			(cast (Lib.current.getChildAt(0), Main)).setFPSCap(290);
 
@@ -8541,10 +8532,6 @@ class PlayState extends MusicBeatState
 					if (luaModchart != null)
 						luaModchart.executeState('playerOneSing', [note.noteData, Conductor.songPosition]);
 					#end
-
-
-					if(!loadRep && note.mustPress)
-						saveNotes.push(HelperFunctions.truncateFloat(note.strumTime, 2));
 
 					switch (curSong.toLowerCase())
 					{
