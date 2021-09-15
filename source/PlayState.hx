@@ -4319,7 +4319,7 @@ class PlayState extends MusicBeatState
 			mcontrols.cameras = [camcontrol];
 
 			//mcontrols.visible = false;
-			mcontrols.alpha = 0;
+			//mcontrols.alpha = 0;
 
 			add(mcontrols);
 
