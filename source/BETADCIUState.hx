@@ -189,7 +189,7 @@ class BETADCIUState extends MusicBeatState
 			trace(md);
 		 */
 
-
+		addVirtualPad(FULL, A_B);
 
 		super.create();
 	}
