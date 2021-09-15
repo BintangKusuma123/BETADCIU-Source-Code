@@ -98,13 +98,14 @@ class SecretState extends MusicBeatState
 						});
 					}
 			});
+		addVirtualPad(NONE, A);
 	}
 
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
 
-		if (FlxG.keys.justPressed.ENTER)
+		if (controls.ACCEPT)
 		{
 			FlxG.switchState(new MainMenuState());
 		}
