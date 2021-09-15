@@ -267,7 +267,7 @@ class BonusSongsState extends MusicBeatState
 			inUnlockMenu = true;
 			FlxG.save.data.seenDeathHoloPassword = true;
 		}
-			
+		addVirtualPad(FULL, A_B);
 		super.create();
 	}
 
